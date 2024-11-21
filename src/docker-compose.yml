@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  #homeassistant:
+  #  container_name: homeassistant
+  #  image: "ghcr.io/home-assistant/home-assistant:latest"
+  #  volumes:
+  #    - ../datafiles/ha/config:/config
+  #    - ../datafiles/ha/etc/localtime:/etc/localtime:ro
+  #  restart: unless-stopped
+  #  ports:
+  #    - 8123:8123
+  #  privileged: true
+  #  ##network_mode: host
+    
+  node-red:
+    image: nodered/node-red:latest
+    environment:
+      - TZ=Europe/Amsterdam
+    ports:
+      - "1880:1880"
+    networks:
+      - node-red-net
+    volumes:
+      - ../datafiles/node-red-data:/data
+    restart: unless-stopped
+
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mosquitto
+    environment:
+      - TZ=Europe/Madrid    
+    volumes:
+      - ../datafiles/mosquitto/config:/mosquitto/config
+      - ../datafiles/mosquitto/data:/mosquitto/data
+      - ../datafiles/mosquitto/log:/mosquitto/log
+    ports:
+      - 1883:1883
+      - 9001:9001
+    restart: unless-stopped
+
+volumes:
+  node-red-data:
+
+networks:
+  node-red-net:
