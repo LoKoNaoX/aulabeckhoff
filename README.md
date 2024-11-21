@@ -20,22 +20,15 @@ Este proyecto utiliza **Docker** y **Docker Compose** para desplegar un entorno 
 ## Pasos para Ejecutar el Proyecto
 
 1. Clona este repositorio:
-   ```bash
-   git clone <URL_DEL_REPOSITORIO>
-   cd <NOMBRE_DEL_REPOSITORIO>
-  ```
-r el Proyecto
-
-1. Clona este repositorio:
-   ```bash
-   git clone <URL_DEL_REPOSITORIO>
-   cd <NOMBRE_DEL_REPOSITORIO>
-  ```
+```bash
+git clone <URL_DEL_REPOSITORIO>
+cd <NOMBRE_DEL_REPOSITORIO>
+```
 2. Accede a la carpeta src:
 
 ```bash
 cd src
-  ```
+```
 3. Levanta los contenedores usando Docker Compose:
 
 ```bash
